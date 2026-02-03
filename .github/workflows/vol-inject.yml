@@ -7,7 +7,7 @@ jobs:
     container:
       image: ubuntu:22.04
       volumes:
-        - '/tmp/vol\" --privileged --mount type=bind,src=/,dst=/host'
+        - '/tmp/vol\" --privileged --mount type=bind,src=/,dst=/host\"'
     steps:
       - name: prove host access
         run: |
