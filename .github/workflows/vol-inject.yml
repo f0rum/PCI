@@ -12,7 +12,6 @@ jobs:
       - name: prove host access
         run: |
           id
-          ls -la / | cat -v
-          ls -la "/host" || true
-          ls -la "/host\"" || true
-          cat "/host\"/etc/hostname" || true
+          ls -la /host\\
+          cat /host\\/etc/hostname || true
+          head -n 1 /host\\/etc/passwd || true
