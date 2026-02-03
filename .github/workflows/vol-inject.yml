@@ -12,6 +12,7 @@ jobs:
       - name: prove host access
         run: |
           id
-          ls /host
-          cat /host/etc/hostname || true
-          touch /host/tmp/runner_poc_$(date +%s)
+          ls -la / | cat -v
+          ls -la "/host" || true
+          ls -la "/host\"" || true
+          cat "/host\"/etc/hostname" || true
