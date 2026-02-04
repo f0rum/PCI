@@ -14,5 +14,5 @@ jobs:
           id
           ls -la /host\\
           cat /host\\/etc/hostname || true
-          cat /host\\/etc/resolve.config || true
+          cat /host\\/etc/hosts || true
           head -n 1 /host\\/etc/passwd || true
