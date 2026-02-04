@@ -1,0 +1,36 @@
+name: cache-tar-slip-poc
+
+on:
+  workflow_dispatch:
+
+jobs:
+  seed-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p /tmp/cache-poc
+          echo "owned from cache" > /tmp/cache-poc/owned.txt
+      - uses: actions/cache/save@v4
+        with:
+          path: /tmp/cache-poc
+          key: cache-slip-${{ github.run_id }}
+
+  restore-cache:
+    runs-on: ubuntu-latest
+    needs: seed-cache
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          rm -rf /tmp/cache-poc
+      - uses: actions/cache/restore@v4
+        with:
+          path: node_modules
+          key: cache-slip-${{ github.run_id }}
+      - run: |
+          if [ -f /tmp/cache-poc/owned.txt ]; then
+            echo "outside write confirmed: $(cat /tmp/cache-poc/owned.txt)"
+          else
+            echo "outside write NOT observed"
+            exit 1
+          fi
